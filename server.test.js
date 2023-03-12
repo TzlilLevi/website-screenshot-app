@@ -1,7 +1,5 @@
 const server = require("./server.js");
 
-// import { handler } from "./server.js";
-
 const event = {
   url: "http://www.google.com",
 };
