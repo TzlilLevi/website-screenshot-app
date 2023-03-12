@@ -27,6 +27,7 @@ graph TD
 - Modules
   - puppeteer
   - videoshow
+  - path (tests)
 - FFMPEG installed [http://ffmpeg.org/]
 
 ## 📦 Usage
