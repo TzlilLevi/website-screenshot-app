@@ -1,4 +1,5 @@
 const server = require("./server.js");
+const path = require("path");
 
 const event = {
   url: "http://www.google.com",
@@ -6,7 +7,8 @@ const event = {
 
 test("returns an object with url path", async () => {
   const result = await server.handler(event);
-  let path = result.file;
   expect(typeof result).toBe("object");
-  expect(path.substr(path.length - 3)).toBe("mp4");
+  let pathOfVideo = result.file;
+  let fileName = path.basename(pathOfVideo);
+  expect(path.extname(fileName)).toBe(".mp4");
 }, 60000);

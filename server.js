@@ -10,7 +10,7 @@ export const handler = async (event) => {
 
 //create screenshot
 const takeSnapshot = async (url, videoshow) => {
-  let imageName = rendomImageName();
+  const imageName = rendomImageName();
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
@@ -19,11 +19,11 @@ const takeSnapshot = async (url, videoshow) => {
   await browser.close();
 
   //create video from imageScreenshot
-  return await createVideo(imageName);
+  return createVideo(imageName);
 };
 
 const createVideo = async (imageName) => {
-  let image = [{ path: `./images/${imageName}.png` }];
+  const image = [{ path: `./images/${imageName}.png` }];
   const videoOptions = {
     fps: 25,
     loop: 10,

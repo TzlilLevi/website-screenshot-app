@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "path": "^0.12.7",
     "puppeteer": "^19.7.3",
     "videoshow": "^0.1.12"
   },
