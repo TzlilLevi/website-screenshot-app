@@ -1,6 +1,5 @@
 "use strict";
 
-// export  - add in the end
 export const handler = async (event) => {
   let videoPath = await takeSnapshot(event["url"]);
   console.log(videoPath);
@@ -63,10 +62,3 @@ const rendomImageName = () => {
     .toString(16)
     .substring(1);
 };
-
-// move to test
-// const event = {
-//   url: "http://www.google.com",
-// };
-
-// handler(event);
