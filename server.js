@@ -1,22 +1,18 @@
 "use strict";
+const puppeteer = require("puppeteer");
+const videoshow = require("videoshow");
 
 export const handler = async (event) => {
-  let videoPath = await takeSnapshot(event["url"]);
+  const videoPath = await takeSnapshot(event["url"]);
   console.log(videoPath);
   return videoPath;
 };
 
 //create screenshot
 const takeSnapshot = async (url, videoshow) => {
-  const puppeteer = require("puppeteer");
   let imageName = rendomImageName();
 
-  const browser = await puppeteer.launch({
-    defaultViewport: {
-      width: 1280,
-      height: 2000,
-    },
-  });
+  const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto(url);
   await page.screenshot({ path: `./images/${imageName}.png` });
@@ -27,7 +23,6 @@ const takeSnapshot = async (url, videoshow) => {
 };
 
 const createVideo = async (imageName) => {
-  const videoshow = require("videoshow");
   let image = [{ path: `./images/${imageName}.png` }];
   const videoOptions = {
     fps: 25,
