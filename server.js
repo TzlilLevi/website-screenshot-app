@@ -1,7 +1,7 @@
 "use strict";
 
 // export  - add in the end
-const handler = async (event) => {
+export const handler = async (event) => {
   let videoPath = await takeSnapshot(event["url"]);
   console.log(videoPath);
   return videoPath;
@@ -20,7 +20,7 @@ const takeSnapshot = async (url, videoshow) => {
   });
   const page = await browser.newPage();
   await page.goto(url);
-  await page.screenshot({ path: `${__dirname}/images/${imageName}.png` });
+  await page.screenshot({ path: `./images/${imageName}.png` });
   await browser.close();
 
   //create video from imageScreenshot
@@ -29,7 +29,7 @@ const takeSnapshot = async (url, videoshow) => {
 
 const createVideo = async (imageName) => {
   const videoshow = require("videoshow");
-  let image = [{ path: `${__dirname}/images/${imageName}.png` }];
+  let image = [{ path: `./images/${imageName}.png` }];
   const videoOptions = {
     fps: 25,
     loop: 10,
@@ -64,9 +64,9 @@ const rendomImageName = () => {
     .substring(1);
 };
 
-//move to test
-const event = {
-  url: "http://www.google.com",
-};
+// move to test
+// const event = {
+//   url: "http://www.google.com",
+// };
 
-handler(event);
+// handler(event);
