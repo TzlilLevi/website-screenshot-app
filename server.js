@@ -4,7 +4,7 @@ const videoshow = require("videoshow");
 
 export const handler = async (event) => {
   const videoPath = await takeSnapshot(event["url"]);
-  console.log(videoPath);
+  console.log("The video file Obj:\n", videoPath);
   return videoPath;
 };
 
@@ -17,7 +17,6 @@ const takeSnapshot = async (url, videoshow) => {
   await page.goto(url);
   await page.screenshot({ path: `./images/${imageName}.png` });
   await browser.close();
-
   //create video from imageScreenshot
   return createVideo(imageName);
 };
