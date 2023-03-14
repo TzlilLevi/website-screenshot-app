@@ -28,6 +28,7 @@ graph TD
   - puppeteer
   - videoshow
   - path (tests)
+  - jest (tests)
 - FFMPEG installed [http://ffmpeg.org/]
 
 ## 📦 Usage

@@ -15,14 +15,14 @@ const takeSnapshot = async (url, videoshow) => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto(url);
-  await page.screenshot({ path: `./images/${imageName}.png` });
+  await page.screenshot({ path: `./${imageName}.png` });
   await browser.close();
   //create video from imageScreenshot
   return createVideo(imageName);
 };
 
 const createVideo = async (imageName) => {
-  const image = [{ path: `./images/${imageName}.png` }];
+  const image = [{ path: `./${imageName}.png` }];
   const videoOptions = {
     fps: 25,
     loop: 10,
@@ -36,7 +36,7 @@ const createVideo = async (imageName) => {
 
   return new Promise((resolve, reject) =>
     videoshow(image, videoOptions, imageName)
-      .save(`${__dirname}/videos/${imageName}.mp4`)
+      .save(`${__dirname}/${imageName}.mp4`)
       .on("start", function (command) {
         console.log("Convertion started: " + command);
       })
