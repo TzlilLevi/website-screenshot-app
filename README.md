@@ -50,6 +50,17 @@ The function returns an object containing the path to the video.
 }
 ```
 
+## 🏃‍♂️ Running steps
+
+- Installation requirements
+- Running the tests with the command:
+
+```js
+ npm test
+```
+
+If the test was successful, you can see in the terminal a printout of the path where the video is saved.
+
 ## 🧪 Tests
 
 Unit test written with Jest.
