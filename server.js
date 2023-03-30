@@ -9,7 +9,7 @@ export const handler = async (event) => {
 };
 
 //create screenshot
-const takeSnapshot = async (url, videoshow) => {
+const takeSnapshot = async (url) => {
   const imageName = rendomImageName();
 
   const browser = await puppeteer.launch();
@@ -35,7 +35,7 @@ const createVideo = async (imageName) => {
   };
 
   return new Promise((resolve, reject) =>
-    videoshow(image, videoOptions, imageName)
+    videoshow(image, videoOptions)
       .save(`${__dirname}/${imageName}.mp4`)
       .on("start", function (command) {
         console.log("Convertion started: " + command);
