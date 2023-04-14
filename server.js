@@ -10,7 +10,7 @@ export const handler = async (event) => {
 
 //create screenshot
 const takeSnapshot = async (url) => {
-  const imageName = rendomImageName();
+  const imageName = randomImageName();
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
@@ -51,7 +51,7 @@ const createVideo = async (imageName) => {
   );
 };
 
-const rendomImageName = () => {
+const randomImageName = () => {
   return Math.floor((1 + Math.random()) * 0x10000)
     .toString(16)
     .substring(1);
